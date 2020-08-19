@@ -1,20 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content #ionContent [fullscreen]="true">
+    <ion-list>
+        <virtual-scroller
+            #scroll
+            [items]="dataList"
+            (vsStart)="loadBefore($event)"
+            (vsEnd)="loadAfter($event);"
+        >
+            <ion-item *ngFor="let item of scroll.viewPortItems" [class.currentPost]="item.name == postId"
+                      (click)="openInBrowser(item.url)">
+                <ion-avatar slot="start">
+                    <img src="{{item.thumbnail}}">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{item.title}}</h2>
+                </ion-label>
+            </ion-item>
+        </virtual-scroller>
+    </ion-list>
 </ion-content>

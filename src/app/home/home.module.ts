@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-
 import { HomePageRoutingModule } from './home-routing.module';
+import { RedditHttpService } from '../services/reddit.service';
+import { HttpClientModule } from '@angular/common/http';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 
 @NgModule({
@@ -12,8 +14,11 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientModule,
+    VirtualScrollerModule
   ],
+  providers: [RedditHttpService],
   declarations: [HomePage]
 })
 export class HomePageModule {}

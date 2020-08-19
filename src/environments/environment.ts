@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  httpDataUrl: 'https://www.reddit.com',
+  postsLimitBeforeAfter: 10,
+  corsApiHost: 'https://cors-anywhere.herokuapp.com',
 };
 
 /*
